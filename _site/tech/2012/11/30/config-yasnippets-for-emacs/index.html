@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="google-site-verification" content="5BPJsPRKSw5tmNfhAk54112rDkRXu3iUpRABYJj8CCY" />
+    <title>Emacs配置yasnippet</title>
+    <link href="/stylesheets/default.css" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/highlight.css" rel="stylesheet" type="text/css">
+    <link href="http://feeds2.feedburner.com/lenage" rel="alternate" title="Jackrex's blog" type="application/atom+xml">
+    <link href='/images/favicon.ico' rel='shortcut icon' type='image/ico'>
+  </head>
+  <body>
+    <div id="wrap">
+      <div class="glow"></div>
+      <div id="header">
+        <div class="top"></div>
+        <div class="content">
+        <h1><a href="/">JackRex<span>.</span>blog</a></h1>
+        <ul id="nav">
+          <li><a href="/">Blog</a></li>
+          <li><a href="/android">Android</a></li>
+          <li><a href="/apple">Apple</a></li>
+ 	<li><a href="/wp">Wp8/Win8</a></li>	
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </div>
+      <div class="bottom"></div>
+      </div>
+    <div class="post">
+  <div class="top">
+  <time datetime="Fri Nov 30 00:00:00 +0800 2012">30 Nov</time>
+  <h2>Emacs配置yasnippet</h2>
+  </div>
+  <div class="content">
+  <p>适用版本: Emacs 24+</p>
+
+<ol>
+<li>添加package源，将如下代码加到<code>.emacs</code> 或者 <code>.emacs.d/init.el</code></li>
+</ol>
+<div class='highlight'><pre><code class='cl'><span class='c1'>;; set packages</span>
+<span class='p'>(</span><span class='nb'>require</span> <span class='ss'>&#39;package</span><span class='p'>)</span>
+<span class='p'>(</span><span class='k'>setq</span> <span class='nv'>package-archives</span>
+      <span class='o'>&#39;</span><span class='p'>((</span><span class='s'>&quot;original&quot;</span>    <span class='o'>.</span> <span class='s'>&quot;http://tromey.com/elpa/&quot;</span><span class='p'>)</span>
+        <span class='p'>(</span><span class='s'>&quot;gnu&quot;</span>         <span class='o'>.</span> <span class='s'>&quot;http://elpa.gnu.org/packages/&quot;</span><span class='p'>)</span>
+        <span class='p'>(</span><span class='s'>&quot;marmalade&quot;</span>   <span class='o'>.</span> <span class='s'>&quot;http://marmalade-repo.org/packages/&quot;</span><span class='p'>)</span>
+        <span class='p'>(</span><span class='s'>&quot;melpa&quot;</span>       <span class='o'>.</span> <span class='s'>&quot;http://melpa.milkbox.net/packages/&quot;</span><span class='p'>)))</span>
+<span class='p'>(</span><span class='nv'>package-initialize</span><span class='p'>)</span>
+</code></pre></div>
+<ol>
+<li>
+<p><code>M-x eval-buffer</code></p>
+</li>
+
+<li>
+<p><code>M-x package-list-packages</code> 按照你的网速快慢，可能需要半分钟左右.</p>
+</li>
+
+<li>
+<p>在打开的Packages Buffer中，找到<code>yasnippet</code> <code>yasnippet-bundle</code> <code>yas-jit</code>, 并按<code>i</code>(install) 标记安装.最后按<code>x</code>安装。 PS:</p>
+
+<ul>
+<li><code>yasnippet-bundle</code>(可选) &#8211; 自动编译snippets</li>
+
+<li><code>yas-jit</code>(可选) &#8211; 按需加载snippets</li>
+</ul>
+</li>
+
+<li>
+<p>配置yasnippet,这里分两种情况: 安装yas-jit和没有安装yas-jit:</p>
+
+<ul>
+<li>如果安装了<code>yas-int</code></li>
+</ul>
+</li>
+</ol>
+<div class='highlight'><pre><code class='cl'><span class='p'>(</span><span class='nb'>require</span> <span class='ss'>&#39;yas-jit</span><span class='p'>)</span>
+<span class='p'>(</span><span class='nb'>require</span> <span class='ss'>&#39;dropdown-list</span><span class='p'>)</span>
+<span class='p'>(</span><span class='k'>setq</span> <span class='nv'>yas/prompt-functions</span> <span class='o'>&#39;</span><span class='p'>(</span>
+                             <span class='nv'>yas/ido-prompt</span>
+                             <span class='nv'>yas/dropdown-prompt</span>
+                             <span class='nv'>yas/completing-prompt</span><span class='p'>))</span>
+<span class='p'>(</span><span class='k'>setq</span> <span class='nv'>yas/root-directory</span> <span class='o'>&#39;</span><span class='p'>(</span>
+                           <span class='s'>&quot;~/.emacs.d/snippets&quot;</span> <span class='c1'>;; 自己的snippets</span>
+                           <span class='s'>&quot;~/.emacs.d/elpa/yasnippet-20121127.25/snippets&quot;</span> <span class='c1'>;; yasnippet提供的</span>
+                           <span class='s'>&quot;~/.emacs.d/vendor/yasnippets-rails/rails-snippets&quot;</span> <span class='c1'>;; 其他</span>
+                           <span class='s'>&quot;~/.emacs.d/vendor/yasnippets-shoulda&quot;</span><span class='p'>))</span>
+<span class='p'>(</span><span class='nv'>yas/jit-load</span><span class='p'>)</span>
+</code></pre></div>
+<p>* 如果没有安装<code>yas-jit</code></p>
+<div class='highlight'><pre><code class='cl'><span class='p'>(</span><span class='nb'>require</span> <span class='ss'>&#39;yasnippet</span><span class='p'>)</span>
+<span class='p'>(</span><span class='nv'>yas-global-mode</span> <span class='mi'>1</span><span class='p'>)</span>
+<span class='p'>(</span><span class='nb'>require</span> <span class='ss'>&#39;dropdown-list</span><span class='p'>)</span>
+<span class='p'>(</span><span class='k'>setq</span> <span class='nv'>yas/prompt-functions</span> <span class='o'>&#39;</span><span class='p'>(</span> <span class='nv'>yas/ido-prompt</span>
+                              <span class='nv'>yas/dropdown-prompt</span>
+                              <span class='nv'>yas/completing-prompt</span><span class='p'>))</span>
+<span class='p'>(</span><span class='nv'>yas/load-directory</span> <span class='s'>&quot;~/.emacs.d/vendor/yasnippets-rails/rails-snippets&quot;</span><span class='p'>)</span>
+<span class='p'>(</span><span class='nv'>yas/load-directory</span> <span class='s'>&quot;~/.emacs.d/vendor/yasnippets-shoulda&quot;</span><span class='p'>)</span>
+</code></pre></div>
+<p>6. 完了.</p>
+
+<p>欢迎参考我的<a href='http://github.com/lenage/emacs-config'>emacs-config</a></p>
+
+<h3 id='known_issue'>Known issue</h3>
+
+<ol>
+<li>markdown-mode 下由于 <code>TAB</code> 被绑定到了 <code>markdown-cycle</code>上，所以无法展开snippets。 查看键绑定<code>C-h k RET TAB</code></li>
+</ol>
+
+<blockquote>
+<p>TAB runs the command markdown-cycle, which is an interactive compiled Lisp function in &#8216;markdown-mode.el&#8217;.</p>
+</blockquote>
+<div id="paginator">
+  
+    <a id="left" href="/tech/2012/11/20/rename-multiple-file/" title="Linux Rename Multiple Files">&larr; Older</a>
+  
+  <form action="http://www.google.com/cse" method="get">
+    <fieldset>
+      <input type="hidden" name="cx" value="014712474749397443257:u5axdnovsmk" />
+      <input type="hidden" name="ie" value="UTF-8" />
+      <input type="search" name="q" size="31" />
+      <input type="submit" name="sa" value="Search" />
+    </fieldset>
+  </form>
+  
+    <a id="right" href="/tech/2012/11/30/jeykll-highlight-lisp-with-pygments/" title="Jekyll利用pygments高亮lisp代码">Newer &rarr;</a>
+  
+</div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'benage'; // required: replace example with your forum shortname
+
+// The following are highly recommended additional parameters. Remove the slashes in front to use.
+// var disqus_identifier = 'unique_dynamic_id_1234';
+// var disqus_url = 'http://example.com/permalink-to-page.html';
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+ var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+ dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+ })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  <div class="bottom"></div>
+</div>
+<div id="footer">
+  <div class="top"></div>
+  <div class="content">
+    <a id ="qrcode" href="http://blog.csdn.net/xpp1993><img id="left" src="http://img3.douban.com/icon/ul56530343-2.jpg" alt="JackRex" /></a>
+    <p id="web_links">
+      I Am JackRex <a  href="http://img3.douban.com/icon/ul56530343-2.jpg">截图</a>.
+      <a href="http://twitter.com/Jackrex/">Twitter</a>,
+      <a href="http://www.douban.com/people/56530343/">豆瓣</a>
+      <a href="http://github.com/jackrex">GitHub</a>&nbsp; 订阅
+      <a href="http://feeds2.feedburner.com/lenage">Atom feed</a>.
+      <br />
+      <span id="copyright"> © 2012 JackRex. All Rights Reserved.</span>
+    </p>
+  </div>
+  <div class="bottom"></div>
+</div>
+
+
+  </div>
+  <!--Add you link here-->
+  <div id="addon">
+    <a href="http://github.com/jackrex" id="github"><img src="/images/parallax_octocat.png" alt="Find me on Github"/></a>
+  </div>
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34087103-1']);
+  _gaq.push(['_setDomainName', 'lenage.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>

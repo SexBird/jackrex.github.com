@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="google-site-verification" content="5BPJsPRKSw5tmNfhAk54112rDkRXu3iUpRABYJj8CCY" />
+    <title>archlinux+openbox使用笔记本的多媒体键</title>
+    <link href="/stylesheets/default.css" rel="stylesheet" type="text/css">
+    <link href="/stylesheets/highlight.css" rel="stylesheet" type="text/css">
+    <link href="http://feeds2.feedburner.com/lenage" rel="alternate" title="Jackrex's blog" type="application/atom+xml">
+    <link href='/images/favicon.ico' rel='shortcut icon' type='image/ico'>
+  </head>
+  <body>
+    <div id="wrap">
+      <div class="glow"></div>
+      <div id="header">
+        <div class="top"></div>
+        <div class="content">
+        <h1><a href="/">JackRex<span>.</span>blog</a></h1>
+        <ul id="nav">
+          <li><a href="/">Blog</a></li>
+          <li><a href="/android">Android</a></li>
+          <li><a href="/apple">Apple</a></li>
+ 	<li><a href="/wp">Wp8/Win8</a></li>	
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </div>
+      <div class="bottom"></div>
+      </div>
+    <div class="post">
+  <div class="top">
+  <time datetime="Thu Apr 07 00:00:00 +0800 2011">07 Apr</time>
+  <h2>archlinux+openbox使用笔记本的多媒体键</h2>
+  </div>
+  <div class="content">
+  <p>需要说明的是：这里指的多媒体键是指，笔记本上除Fn+*之外的独立按键，一般用来静音，加大减小音量，打开DVD光驱等。</p>
+
+<p><code>PC：cq45-203tx</code></p>
+
+<p>背景：之前用ubuntu+gnome的时候快捷键有效，切换到archlinux+openbox后快捷键失灵，只能用alsamixer调节音量， 安装过volwheel，但还是不好用，后来在#ubuntu-cn频道找到了解决办法，如下：</p>
+
+<ol>
+<li>确定内核是否支持，在终端中运行 xev，然后触摸按键，看输出： KeyRelease event, serial 40, synthetic NO, window 0×2600001, root 0x15a, subw 0×0, time 20902899, (240,92), root:(387,402), state 0×0, keycode 121 (keysym 0x1008ff12, XF86AudioMute), same_screen YES, XLookupString gives 0 bytes: XFilterEvent returns: False</li>
+</ol>
+
+<p>如果能得到如上的输出，你得到的不一定和我的完全一样，但至少要能在其中找到按键标识，即上面红色指出的部分。</p>
+
+<ol>
+<li>从上面的输出我们可以看出，该按键市静音按钮，用vim或者你喜欢的编辑器打开 <code>~/.config/openbox/rc.xml</code>文件， 找到keybind部分；然后设置按键<code>XF86AudioMute</code>运行<code>amixer sset Master,0 toggle：</code></li>
+</ol>
+<div class='highlight'><pre><code class='xml'><span class='nt'>&lt;keybind</span> <span class='na'>key=</span><span class='s'>”XF86AudioMute”</span><span class='nt'>&gt;</span>
+<span class='nt'>&lt;action</span> <span class='na'>name=</span><span class='s'>”Execute”</span><span class='nt'>&gt;</span>
+<span class='nt'>&lt;startupnotify&gt;</span>
+<span class='nt'>&lt;enabled&gt;</span>true<span class='nt'>&lt;/enabled&gt;</span>
+<span class='nt'>&lt;name&gt;</span>Audio mute<span class='nt'>&lt;/name&gt;</span>
+<span class='nt'>&lt;/startupnotify&gt;</span>
+<span class='nt'>&lt;command&gt;</span>amixer sset Master,0 toggle<span class='nt'>&lt;/command&gt;</span>
+<span class='nt'>&lt;/action&gt;</span>
+<span class='nt'>&lt;/keybind&gt;</span>
+</code></pre></div>
+<ol>
+<li>用第一步的方法得到增大音量和减小音量的按键标识分别是<code>XF86AudioRaiseVolume</code>和<code>XF86AudioLowerVolume</code>； 分别绑定为<code>amixer sset Master 2%+</code>（增加音量）<code>amixer sset Master 2%-</code>（减小音量），如下：</li>
+</ol>
+<div class='highlight'><pre><code class='xml'><span class='nt'>&lt;keybind</span> <span class='na'>key=</span><span class='s'>”XF86AudioMute”</span><span class='nt'>&gt;</span>
+<span class='nt'>&lt;keybind</span> <span class='na'>key=</span><span class='s'>”XF86AudioRaiseVolume”</span><span class='nt'>&gt;</span>
+<span class='nt'>&lt;action</span> <span class='na'>name=</span><span class='s'>”Execute”</span><span class='nt'>&gt;</span>
+<span class='nt'>&lt;startupnotify&gt;</span>
+<span class='nt'>&lt;enabled&gt;</span>true<span class='nt'>&lt;/enabled&gt;</span>
+<span class='nt'>&lt;name&gt;</span>Audio raise<span class='nt'>&lt;/name&gt;</span>
+<span class='nt'>&lt;/startupnotify&gt;</span>
+<span class='nt'>&lt;command&gt;</span>amixer sset Master 2%+<span class='nt'>&lt;/command&gt;</span>
+<span class='nt'>&lt;/action&gt;</span>
+<span class='nt'>&lt;/keybind&gt;</span>
+<span class='nt'>&lt;keybind</span> <span class='na'>key=</span><span class='s'>”XF86AudioLowerVolume”</span><span class='nt'>&gt;</span>
+<span class='nt'>&lt;action</span> <span class='na'>name=</span><span class='s'>”Execute”</span><span class='nt'>&gt;</span>
+<span class='nt'>&lt;startupnotify&gt;</span>
+<span class='nt'>&lt;enabled&gt;</span>true<span class='nt'>&lt;/enabled&gt;</span>
+<span class='nt'>&lt;name&gt;</span>Audio lower<span class='nt'>&lt;/name&gt;</span>
+<span class='nt'>&lt;/startupnotify&gt;</span>
+<span class='nt'>&lt;command&gt;</span>amixer sset Master 2%- <span class='nt'>&lt;/command&gt;</span>
+<span class='nt'>&lt;/action&gt;</span>
+<span class='nt'>&lt;/keybind&gt;</span>
+</code></pre></div>
+<ol>
+<li>在终端中运行$-&gt; <code>openbox –reconfigure done</code>,现在可以享受快捷键带来的快感了。</li>
+</ol>
+<div id="paginator">
+  
+  <form action="http://www.google.com/cse" method="get">
+    <fieldset>
+      <input type="hidden" name="cx" value="014712474749397443257:u5axdnovsmk" />
+      <input type="hidden" name="ie" value="UTF-8" />
+      <input type="search" name="q" size="31" />
+      <input type="submit" name="sa" value="Search" />
+    </fieldset>
+  </form>
+  
+    <a id="right" href="/tech/2011/04/07/some-usefull-linux-command/" title="一些有用的linux命令">Newer &rarr;</a>
+  
+</div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'benage'; // required: replace example with your forum shortname
+
+// The following are highly recommended additional parameters. Remove the slashes in front to use.
+// var disqus_identifier = 'unique_dynamic_id_1234';
+// var disqus_url = 'http://example.com/permalink-to-page.html';
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function() {
+ var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+ dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+ })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  <div class="bottom"></div>
+</div>
+<div id="footer">
+  <div class="top"></div>
+  <div class="content">
+    <a id ="qrcode" href="http://blog.csdn.net/xpp1993><img id="left" src="http://img3.douban.com/icon/ul56530343-2.jpg" alt="JackRex" /></a>
+    <p id="web_links">
+      I Am JackRex <a  href="http://img3.douban.com/icon/ul56530343-2.jpg">截图</a>.
+      <a href="http://twitter.com/Jackrex/">Twitter</a>,
+      <a href="http://www.douban.com/people/56530343/">豆瓣</a>
+      <a href="http://github.com/jackrex">GitHub</a>&nbsp; 订阅
+      <a href="http://feeds2.feedburner.com/lenage">Atom feed</a>.
+      <br />
+      <span id="copyright"> © 2012 JackRex. All Rights Reserved.</span>
+    </p>
+  </div>
+  <div class="bottom"></div>
+</div>
+
+
+  </div>
+  <!--Add you link here-->
+  <div id="addon">
+    <a href="http://github.com/jackrex" id="github"><img src="/images/parallax_octocat.png" alt="Find me on Github"/></a>
+  </div>
+  <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34087103-1']);
+  _gaq.push(['_setDomainName', 'lenage.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </body>
+</html>
