@@ -27,70 +27,6 @@
       <div class="bottom"></div>
       </div>
     
-<div class="post">
-  <div class="top">
-    <time datetime="Sun Dec 09 00:00:00 +0800 2012">09 Dec</time>
-    <h2><a href="/tech/2012/12/09/nginx-use-error-page-for-proxy-status-code/">nginx反向代理自定义error_page</a></h2>
-  </div>
-  <div class="content">
-    <h2 id='id1'>背景</h2>
-
-<p>caveman中如果没有找到路由则返回状态码404,但是不任何内容,所以需要nginx提供自定义404页面. 用<code>error_page 404 /404.html;</code>没有效果.</p>
-
-<h2 id='id2'>解决</h2>
-
-<p>使用<code>proxy_intercept_errors</code>,详细见这里<span>proxy_intercept_errors</span>, 如果设置为<code>on</code>, 将捕获&gt;400的状态码，并按照<code>error_page</code>的配置返回页面，如果没有配置则抛回给被代理服务器. 所以配置看起来是这样的: <script src='https://gist.github.com/4241137.js'> </script></p>
-  </div>
-  <div class="bottom">
-    <span>Sunday 12/09/12</span>
-  </div>
-</div>
-
-<div class="post">
-  <div class="top">
-    <time datetime="Sat Dec 08 00:00:00 +0800 2012">08 Dec</time>
-    <h2><a href="/tech/2012/12/08/deploy-caveman-app-to-ec2/">部署Caveman到Amazon EC2</a></h2>
-  </div>
-  <div class="content">
-    <p>上篇<a href='http://blog.lenage.com/tech/2012/12/07/deploy-common-lisp-app-to-heroku/'>部署Lisp应用到heroku</a>水分有点大，反正用Caveman框架写的demo没跑起来过。 这篇记录一下部署到Amazon EC2的过程。</p>
-
-<blockquote>
-<p>Caveman是一个Common Lisp的web框架, 基于clack, 更多<a href='https://github.com/fukamachi/caveman'>戳这里</a>,作者是个日本人, <a href='https://twitter.com/nitro_idiot'>twitter帐号</a></p>
-</blockquote>
-
-<p>首先是创建EC2 Instance之类的不多说。</p>
-
-<p>其次, 安装:</p>
-
-<ol>
-<li><code>sudo apt-get install tmux</code> 用于跑REPL然后关掉终端但是执行的命令继续跑，<a href='http://stackoverflow.com/questions/451329/what-is-the-preferred-way-to-run-lisp-web-application'>StackOverflow</a>上的讨论。</li>
-
-<li><code>sudo apt-get install sbcl</code> 详细 http://www.sbcl.org/</li>
-
-<li><code>quicklisp</code> 安装看<a href='http://www.quicklisp.org/beta/'>这里</a></li>
-
-<li>设置服务端的git，然后push代码到EC2， 可以参考这篇文章: <a href='http://tumblr.intranation.com/post/766290565/how-set-up-your-own-private-git-server-linux'>How to set up your own private Git server on Linux</a> 和<a href='http://news.ycombinator.com/item?id=1652414'>HN上的讨论</a>，具体流程看这个<a href='https://gist.github.com/4239048'>gist</a></li>
-</ol>
-
-<p>然后，启动sbcl, 在tmux中运行<code>sbcl --load quicklisp.lisp</code>, 执行<code>(ql:quickload :myapp)</code>, 如有报错请检查quicklisp是否 安装正确，或者myapp目录是否在<code>quicklisp/local_projects/</code>目录下面，</p>
-
-<p>最后, 在sbcl中运行<code>(myapp:start)</code> 启动. 启动后默认端口为5000(参<code>config/dev.lisp</code>), 如果想直接用80端口的话，</p>
-
-<ol>
-<li><code>sudo sbcl --load quicklisp.lisp</code></li>
-
-<li><code>(ql:quickload :myapp)</code></li>
-
-<li><code>(myapp:start :port 80)</code></li>
-</ol>
-
-<h2 id='demo'><a href='http://llbire.com'>Demo</a></h2>
-  </div>
-  <div class="bottom">
-    <span>Saturday 12/08/12</span>
-  </div>
-</div>
-
 
 <div class="post index archive">
   <div class="top">
@@ -98,201 +34,6 @@
   </div>
   <div class="content">
     <ol id="archive">
-      
-      <li>
-        <time datetime="Fri Dec 07 00:00:00 +0800 2012">2012-12-07</time>
-        <p><a href="/tech/2012/12/07/deploy-common-lisp-app-to-heroku/">部署Common Lisp应用到heroku</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Tue Dec 04 00:00:00 +0800 2012">2012-12-04</time>
-        <p><a href="/tech/2012/12/04/capistrano-tips/">Capistrano 技巧</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Fri Nov 30 00:00:00 +0800 2012">2012-11-30</time>
-        <p><a href="/tech/2012/11/30/jeykll-highlight-lisp-with-pygments/">Jekyll利用pygments高亮lisp代码</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Fri Nov 30 00:00:00 +0800 2012">2012-11-30</time>
-        <p><a href="/tech/2012/11/30/config-yasnippets-for-emacs/">Emacs配置yasnippet</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Tue Nov 20 00:00:00 +0800 2012">2012-11-20</time>
-        <p><a href="/tech/2012/11/20/rename-multiple-file/">Linux Rename Multiple Files</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Fri Aug 24 00:00:00 +0800 2012">2012-08-24</time>
-        <p><a href="/tech/2012/08/24/emacs-editing-remote-file/">Emacs 编辑远程文件</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Tue Aug 14 00:00:00 +0800 2012">2012-08-14</time>
-        <p><a href="/startup/2012/08/14/what-are-most-read-book-written-by-successfully-enterprenurs/">书单</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Mon Aug 13 00:00:00 +0800 2012">2012-08-13</time>
-        <p><a href="/tech/2012/08/13/config-auto-complete-in-emacs/">为emacs 配置auto-complete</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Sun Aug 12 00:00:00 +0800 2012">2012-08-12</time>
-        <p><a href="/tech/2012/08/12/use-sass-when-rails-g/">设置rails当运行rails g时默认生成sass文件</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Wed Jul 18 00:00:00 +0800 2012">2012-07-18</time>
-        <p><a href="/tech/2012/07/18/url-format/">URL Syntax</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Sat Jun 16 00:00:00 +0800 2012">2012-06-16</time>
-        <p><a href="/tech/2012/06/16/get-rails-info/">A route to get Rails info in devleopment</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Sun Apr 08 00:00:00 +0800 2012">2012-04-08</time>
-        <p><a href="/tech/2012/04/08/emacs-notes/">emcas notes</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Sat Apr 07 00:00:00 +0800 2012">2012-04-07</time>
-        <p><a href="/2012/04/07/emacs-key-binding-tips/">Emacs Key Binding Tips</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Fri Apr 06 00:00:00 +0800 2012">2012-04-06</time>
-        <p><a href="/tech/2012/04/06/yesod-how-to/">Yesod</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Wed Mar 14 00:00:00 +0800 2012">2012-03-14</time>
-        <p><a href="/tech/2012/03/14/generate-ri-doc/">Generate ruby(ri) docs</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Thu Mar 08 00:00:00 +0800 2012">2012-03-08</time>
-        <p><a href="/tools/2012/03/08/how-to-hide-terminal-tab-bar/">如何隐藏terminal的TabBar</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Tue Feb 28 00:00:00 +0800 2012">2012-02-28</time>
-        <p><a href="/tech/2012/02/28/first-blog-in2012/">终端下获得图片大小</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Wed Dec 21 00:00:00 +0800 2011">2011-12-21</time>
-        <p><a href="/tech/2011/12/21/thinning-text-in-webkit/">Thinning Text in webkit</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Wed Nov 23 00:00:00 +0800 2011">2011-11-23</time>
-        <p><a href="/tech/2011/11/23/lame-input-wav-output-mp3/">lame-input.wav output.mp3</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Sun Nov 20 00:00:00 +0800 2011">2011-11-20</time>
-        <p><a href="/tech/2011/11/20/find-chinese-font-name-on-mac/">找到Mac中的中文字体</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Sat Nov 19 00:00:00 +0800 2011">2011-11-19</time>
-        <p><a href="/tech/2011/11/19/git-filter-branch/">git filter-branch</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Tue Oct 04 00:00:00 +0800 2011">2011-10-04</time>
-        <p><a href="/tech/2011/10/04/youtube-500/">youtube  500 page</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Wed Sep 21 00:00:00 +0800 2011">2011-09-21</time>
-        <p><a href="/tech/2011/09/21/what-is-the-vim-feature-you-use/">vim小指南</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Tue Sep 20 00:00:00 +0800 2011">2011-09-20</time>
-        <p><a href="/life/2011/09/20/send-you-a-bullet-notes/">这些学理工的</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Mon Sep 19 00:00:00 +0800 2011">2011-09-19</time>
-        <p><a href="/tech/2011/09/19/wirte-this-for-chef-and-ec2/">Note:Cooking up a Cloud with Chef &EC2</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Thu Aug 25 00:00:00 +0800 2011">2011-08-25</time>
-        <p><a href="/life/2011/08/25/in-between-the-sheets/">床第之间</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Wed Aug 24 00:00:00 +0800 2011">2011-08-24</time>
-        <p><a href="/life/2011/08/24/samll-smell/">小清新哦,亲</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Thu Aug 11 00:00:00 +0800 2011">2011-08-11</time>
-        <p><a href="/tech/2011/08/11/ruby-tips000/">Programming Ruby notes0000</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Mon Jul 25 00:00:00 +0800 2011">2011-07-25</time>
-        <p><a href="/life/2011/07/25/lycris/">曾经带给我快乐的人,说的话比冰块还要冷</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Tue Jun 21 00:00:00 +0800 2011">2011-06-21</time>
-        <p><a href="/life/2011/06/21/new-job-new-point/">到杭州了</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Sat May 28 00:00:00 +0800 2011">2011-05-28</time>
-        <p><a href="/life/2011/05/28/finally-arrived-in-jinhuawest/">偶然去了趟金华</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Thu May 26 00:00:00 +0800 2011">2011-05-26</time>
-        <p><a href="/beauty/2011/05/26/complexity-graphics/">Complexity Graphics</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Wed May 25 00:00:00 +0800 2011">2011-05-25</time>
-        <p><a href="/life/2011/05/25/douban-minsite-suprise/">生活中的惊喜</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Tue May 17 00:00:00 +0800 2011">2011-05-17</time>
-        <p><a href="/2011/05/17/use-gnuplot/">使用gnuplot画莫比乌斯带和克莱因瓶</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Thu May 12 00:00:00 +0800 2011">2011-05-12</time>
-        <p><a href="/2011/05/12/test/">github上的第一篇博客</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Thu May 12 00:00:00 +0800 2011">2011-05-12</time>
-        <p><a href="/2011/05/12/first-blog/">开篇志</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Sun May 01 00:00:00 +0800 2011">2011-05-01</time>
-        <p><a href="/life/2011/05/01/bu-ru-bu-jian/">不如不见</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Thu Apr 07 00:00:00 +0800 2011">2011-04-07</time>
-        <p><a href="/tech/2011/04/07/some-usefull-linux-command/">一些有用的linux命令</a></p>
-      </li>
-      
-      <li>
-        <time datetime="Thu Apr 07 00:00:00 +0800 2011">2011-04-07</time>
-        <p><a href="/tech/2011/04/07/setting-laptop-mutli-media-botton-on-archlinux/">archlinux+openbox使用笔记本的多媒体键</a></p>
-      </li>
       
     </ol>
   </div>
@@ -302,15 +43,15 @@
 <div id="footer">
   <div class="top"></div>
   <div class="content">
-    <a id ="qrcode" href="http://blog.csdn.net/xpp1993><img id="left" src="http://img3.douban.com/icon/ul56530343-2.jpg" alt="JackRex" /></a>
+    <a id ="qrcode" href="http://blog.csdn.net/xpp1993"/>  <img id="left" src="http://img3.douban.com/icon/ul56530343-2.jpg" alt="JackRex" /></a>
     <p id="web_links">
-      I Am JackRex <a  href="http://img3.douban.com/icon/ul56530343-2.jpg">截图</a>.
+      I Am JackRex <a  href="http://img3.douban.com/icon/ul56530343-2.jpg">Click Here My头像</a>.
       <a href="http://twitter.com/Jackrex/">Twitter</a>,
       <a href="http://www.douban.com/people/56530343/">豆瓣</a>
       <a href="http://github.com/jackrex">GitHub</a>&nbsp; 订阅
       <a href="http://feeds2.feedburner.com/lenage">Atom feed</a>.
       <br />
-      <span id="copyright"> © 2012 JackRex. All Rights Reserved.</span>
+      <span id="copyright"> ©  JackRex. All Rights Reserved.</span>
     </p>
   </div>
   <div class="bottom"></div>
