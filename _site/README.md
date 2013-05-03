@@ -1,4 +1,4 @@
-# lenage's Blog(夜深)
+# JackRex's Blog(夜深)
 
 ## History
 * 2011-04-20 21:10 创建博客

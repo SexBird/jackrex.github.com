@@ -2,8 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://jackrex.github.com/</loc>
+    <loc>http://jackrex.github.com/life/2013/05/25/douban-minsite-suprise/</loc>
+    <lastmod>2013-05-25</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jackrex.github.com/life/2013/05/25/douban-minsite-suprise/</loc>
+    <lastmod>2013-05-25</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jackrex.github.com/life/2013/05/02/hello-world/</loc>
     <lastmod>2013-05-02</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jackrex.github.com/life/2013/05/02/hello-world/</loc>
+    <lastmod>2013-05-02</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jackrex.github.com/</loc>
+    <lastmod>2013-05-04</lastmod>
   </url>
   <url>
     <loc>http://jackrex.github.com/about/</loc>
@@ -11,6 +31,6 @@
   </url>
   <url>
     <loc>http://jackrex.github.com/archive/</loc>
-    <lastmod>2013-05-02</lastmod>
+    <lastmod>2013-05-04</lastmod>
   </url>
 </urlset> 
