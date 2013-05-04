@@ -3,67 +3,61 @@
  <title>Jackrex博客</title>
  <link href="http://lenage.github.com/atom.xml" rel="self"/>
  <link href="http://lenage.github.com/"/>
- <updated>2013-05-04T07:24:34+08:00</updated>
- <id>http://lenage.github.com/</id>
+ <updated>2013-05-04T17:34:12+08:00</updated>
+ <id>http://jackrex.github.com/</id>
  <author>
-   <name>lenage</name>
-   <email>lendage@gmail.com</email>
+   <name>jackrex</name>
+   <email>jackrex1993@gmail.com</email>
  </author>
  
    <entry>
-     <title>生活中的惊喜</title>
-     <link href="http://lenage.github.com/life/2013/05/25/douban-minsite-suprise/"/>
-     <updated>2013-05-25T00:00:00+08:00</updated>
-     <id>http://lenage.github.com/life/2013/05/25/douban-minsite-suprise</id>
-     <content type="html">&lt;p&gt;生活之所以精彩是因为有惊喜的存在，常听豆瓣电台，懒得去下一首，只是不断的播放。&lt;/p&gt;
+     <title>RelationShip Between Women And Programing Language</title>
+     <link href="http://lenage.github.com/2013/05/04/relationship-between-women-and-programing-language/"/>
+     <updated>2013-05-04T00:00:00+08:00</updated>
+     <id>http://jackrex.github.com/2013/05/04/relationship-between-women-and-programing-language</id>
+     <content type="html">&lt;p&gt;有的女人就像Windows 虽然很优秀，但是安全隐患太大。&lt;/p&gt;
 
-&lt;p&gt;偶尔有广告，不是很讨厌但也没有很喜欢。&lt;/p&gt;
+&lt;p&gt;有的女人就像UNIX 她条件很好，然而不是谁都能玩的起。&lt;/p&gt;
 
-&lt;p&gt;只到听到&lt;a href='http://site.douban.com/msr/'&gt;陌生人&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;有的女人就像C# 长的很漂亮，但是家务活不行。&lt;/p&gt;
 
-&lt;p&gt;温暖的声音，轻声细雨。&lt;/p&gt;
+&lt;p&gt;有的女人就像C++,她会默默的为你做很多的事情。&lt;/p&gt;
 
-&lt;p&gt;听了会上瘾的声音。&lt;/p&gt;
+&lt;p&gt;有的女人就像JAVA,只需一点付出她就会为你到处服务。&lt;/p&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;更新：好吧，我只喜欢朵拉的声音&lt;/p&gt;
-&lt;/blockquote&gt;</content>
+&lt;p&gt;有的女人就像JAVA script，虽然对她处处小心但最终还是没有结果。&lt;/p&gt;
+
+&lt;p&gt;有的女人就像汇编 虽然很麻烦，但是有的时候还得求它。&lt;/p&gt;
+
+&lt;p&gt;有的女人就像 SQL，她会为你的发展带来莫大的帮助。&lt;/p&gt;
+
+&lt;p&gt;爱情就是死循环，一旦执行就陷进去了。&lt;/p&gt;
+
+&lt;p&gt;爱上一个人，就是内存泄露，你永远释放不了。&lt;/p&gt;
+
+&lt;p&gt;真正爱上一个人的时候，那就是常量限定，永远不会改变。&lt;/p&gt;
+
+&lt;p&gt;女朋友就是私有变量，只有我这个类才能调用。&lt;/p&gt;
+
+&lt;p&gt;情人就是指针用的时候一定要注意，要不然就带来巨大的灾难&lt;/p&gt;</content>
    </entry>
  
    <entry>
-     <title>生活中的惊喜</title>
-     <link href="http://lenage.github.com/life/2013/05/25/douban-minsite-suprise/"/>
-     <updated>2013-05-25T00:00:00+08:00</updated>
-     <id>http://lenage.github.com/life/2013/05/25/douban-minsite-suprise</id>
-     <content type="html">&lt;p&gt;生活之所以精彩是因为有惊喜的存在，常听豆瓣电台，懒得去下一首，只是不断的播放。&lt;/p&gt;
+     <title>Hello World Again</title>
+     <link href="http://lenage.github.com/2013/05/04/hello-world-again/"/>
+     <updated>2013-05-04T00:00:00+08:00</updated>
+     <id>http://jackrex.github.com/2013/05/04/hello-world-again</id>
+     <content type="html">&lt;p&gt;一切皆来源于伟大的Hello World&lt;/p&gt;
 
-&lt;p&gt;偶尔有广告，不是很讨厌但也没有很喜欢。&lt;/p&gt;
-
-&lt;p&gt;只到听到&lt;a href='http://site.douban.com/msr/'&gt;陌生人&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;温暖的声音，轻声细雨。&lt;/p&gt;
-
-&lt;p&gt;听了会上瘾的声音。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;更新：好吧，我只喜欢朵拉的声音&lt;/p&gt;
-&lt;/blockquote&gt;</content>
+&lt;p&gt;Jackrex&amp;#8230;..&lt;/p&gt;</content>
    </entry>
  
    <entry>
-     <title>Hello World</title>
-     <link href="http://lenage.github.com/life/2013/05/02/hello-world/"/>
-     <updated>2013-05-02T00:00:00+08:00</updated>
-     <id>http://lenage.github.com/life/2013/05/02/hello-world</id>
-     <content type="html">&lt;p&gt;一切都来源于伟大的Hello World&amp;#8230;.. JackRex&lt;/p&gt;</content>
-   </entry>
- 
-   <entry>
-     <title>Hello World</title>
-     <link href="http://lenage.github.com/life/2013/05/02/hello-world/"/>
-     <updated>2013-05-02T00:00:00+08:00</updated>
-     <id>http://lenage.github.com/life/2013/05/02/hello-world</id>
-     <content type="html">&lt;p&gt;一切都来源于伟大的Hello World&amp;#8230;.. JackRex&lt;/p&gt;</content>
+     <title>开发android没前途？？</title>
+     <link href="http://lenage.github.com/2013/05/04/android/"/>
+     <updated>2013-05-04T00:00:00+08:00</updated>
+     <id>http://jackrex.github.com/2013/05/04/android</id>
+     <content type="html">&lt;p&gt;菜鸟多了我们就有前途了&amp;#8230;.&lt;/p&gt;</content>
    </entry>
  
 </feed>

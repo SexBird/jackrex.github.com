@@ -7,17 +7,17 @@ layout: nil
  <link href="http://lenage.github.com/atom.xml" rel="self"/>
  <link href="http://lenage.github.com/"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
- <id>http://lenage.github.com/</id>
+ <id>http://jackrex.github.com/</id>
  <author>
-   <name>lenage</name>
-   <email>lendage@gmail.com</email>
+   <name>jackrex</name>
+   <email>jackrex1993@gmail.com</email>
  </author>
  {% for post in site.posts limit:10 %}
    <entry>
      <title>{{ post.title | xml_escape }}</title>
      <link href="http://lenage.github.com{{ post.url }}"/>
      <updated>{{ post.date | date_to_xmlschema }}</updated>
-     <id>http://lenage.github.com{{ post.id }}</id>
+     <id>http://jackrex.github.com{{ post.id }}</id>
      <content type="html">{{ post.content | xml_escape }}</content>
    </entry>
  {% endfor %}
