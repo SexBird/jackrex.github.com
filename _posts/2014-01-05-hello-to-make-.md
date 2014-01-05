@@ -1,8 +1,10 @@
 ---
 layout: post
-title: "Hello to Make ”"
+title: “Already To Change Blog””
 description: ""
 category: 
 tags: []
 ---
 {% include JB/setup %}
+
+Change Blog Start
