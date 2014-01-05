@@ -1,6 +1,1 @@
-markdown: maruku
-permalink: pretty
 pygments: true
-safe: false
-#paginate: 5
-#limit_posts: 5
