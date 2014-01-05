@@ -1,19 +1,7 @@
 # JackRex's Blog
 
-## History
-* 2011-04-20 21:10 创建博客
-* 2011-05-12 12:42 从[tatey.com](http://tatey.com) fork 过来设计并做相应的修改
-* 2011-08-25 04:33 new design
 
-## Licence and Copyright
+我是程序员
 
-Following files, directories and their contents are copyright Tate Johnson. You may not reuse anything therein without my permission:
 
-* about.html
-* images/
-
-Following directories and their contents are licensed under the [Creative Commons Attribution-Noncommercial-No Derivative Works 2.5 Australia](http://creativecommons.org/licenses/by-nc-nd/2.5/au/):
-
-* _posts/
-
-All other files and directories are licensed under the [MIT](http://www.opensource.org/licenses/mit-license.php) unless explicitly stated. If you do use them, a link back to http://blog.lenage.com would beappreciated but is not required.
+我喜欢程序员，他们单纯、固执、容易体会到成就感； 面对压力，能够挑灯夜战不眠不休；面对困难，能够迎难而上挑战自我。 他们也会感到困惑与傍徨，但每个程序员的心中都有一个比尔盖茨或是乔布斯的梦想“用智慧开创属于自己的事业”。 我想说的是，其实我是一个程序员。 JackRex…..
