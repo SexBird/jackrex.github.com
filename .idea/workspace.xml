@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72925ee7-1614-4adc-bbaf-2ba1df748e4d" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Love" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/_site/assets/img/avatar.jpg" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/assets/img/avatar.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/404.html" afterPath="$PROJECT_DIR$/_site/404.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/README.md" afterPath="$PROJECT_DIR$/_site/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/index.html" afterPath="$PROJECT_DIR$/_site/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_site/rss.xml" afterPath="$PROJECT_DIR$/_site/rss.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="jackrex.github.com.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -104,7 +99,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="10" selection-start="97" selection-end="97" vertical-scroll-proportion="0.1380368" vertical-offset="0" max-vertical-offset="652">
+            <state line="5" column="10" selection-start="57" selection-end="57" vertical-scroll-proportion="0.11737089" vertical-offset="0" max-vertical-offset="639">
               <folding />
             </state>
           </provider>
@@ -415,7 +410,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="10" selection-start="97" selection-end="97" vertical-scroll-proportion="0.1380368" vertical-offset="0" max-vertical-offset="652">
+        <state line="5" column="10" selection-start="57" selection-end="57" vertical-scroll-proportion="0.11737089" vertical-offset="0" max-vertical-offset="639">
           <folding />
         </state>
       </provider>
