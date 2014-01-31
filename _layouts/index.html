@@ -17,12 +17,13 @@
 
         <ul id="tags__ul">
           <li id="js-label1" class="tags__li tags-btn active">All Posts</li>
-          <li id="js-label2" class="tags__li tags-btn">Android</li>
-          <li id="js-label3" class="tags__li tags-btn">IOS</li>
-          <li id="js-label4" class="tags__li tags-btn">Python</li>
-          <li id="js-label5" class="tags__li tags-btn">About Me</li>
-
+          <li id="js-label2" class="tags__li tags-btn android">Android </li>
+          <li id="js-label3" class="tags__li tags-btn ios">IOS</li>
+          <li id="js-label4" class="tags__li tags-btn python">Python</li>
+          <li id="js-label5" class="tags__li tags-btn about">About Me</li>
         </ul>
+
+
 
         <div id="tags__bottom">
           <a href="mailto:jackrex1993@gmail.com" id="icon-email" class="tags-btn fontello"></a>
@@ -34,14 +35,34 @@
         <form action="" id="search-form">
           <a href="/index.html" id="mobile-avatar"></a>
           <!-- NOTE: input field is disabled by default -->
-          <input id="search-input" type="text" placeholder="Search..." disabled >
+          <input id="search-input" type="text" placeholder="Search..."  >
         </form>
 
         <nav id="pl__container">
         {% for post in site.posts %}
+
           <a class="{{ post.categories }} pl__all" href="{{ post.url }}"><span class="pl__circle"></span><span class="pl__title">{{ post.title }}</span><span class="pl__date">{{ post.date | date: "%b %Y" }}</span></a>
+
+
+
+        <!--   <a class="{{ post.categories }} pl__android" href="{{ post.url }}"><span class="pl__circle"></span><span class="pl__title">{{ post.title }}</span><span class="pl__date">{{ post.date | date: "%b %Y" }}</span></a> -->
+
+
+<!--           <a class="{{ post.categories }} pl__android" href="{{ post.url }}"><span class="pl__circle"></span></a>
+ -->
+
+        <!--   <a class="{{ post.categories }} pl__python" href="{{ post.url }}"><span class="pl__circle"></span><span class="pl__title">{{ post.title }}</span><span class="pl__date">{{ post.date | date: "%b %Y" }}</span></a>
+
+ -->
+
+
         {% endfor %}
         </nav>
+
+
+
+
+
       </div> <!-- end #posts-list -->
     </aside> <!-- end #sidebar -->
 
